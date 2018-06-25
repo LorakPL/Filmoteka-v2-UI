@@ -1,0 +1,30 @@
+.left {
+  float:left;
+  height:100vh;
+  background: #337ab7;
+  display: inline-block;
+  white-space: nowrap;
+  width: 50px;
+  transition: width 1s ;
+}
+
+.left:hover {
+  width: 200px;
+}
+
+.item {
+  height: 50px;
+  overflow: hidden;
+  color: white;
+}
+
+.item:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.left .fa {
+  margin: 15px;
+  width: 20px;
+  color: white;
+}
