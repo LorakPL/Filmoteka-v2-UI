@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  background: white;
+  height: 100vh;
+}
+
+#container {
+  /*
+  display: grid;
+  grid-template-columns: 50px auto;
+  */
+  display: flex;
+  height: 100%;
+
+  #content {
+    padding: 30px 50px;
+    /*
+    text-align: center;
+    */
+  }
+}

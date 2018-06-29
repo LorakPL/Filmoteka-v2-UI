@@ -5,7 +5,7 @@
   display: inline-block;
   white-space: nowrap;
   width: 50px;
-  transition: width 1s ;
+  transition: width 1s;
 }
 
 .left:hover {
@@ -16,6 +16,7 @@
   height: 50px;
   overflow: hidden;
   color: white;
+  outline: none;
 }
 
 .item:hover {

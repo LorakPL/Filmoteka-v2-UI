@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AlertModule } from 'ngx-bootstrap';
+import { AddComponent } from './add/add.component';
+import { ManuallyAddComponent } from './manually-add/manually-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidenavComponent
+    SidenavComponent,
+    AddComponent,
+    ManuallyAddComponent
   ],
   imports: [
     BrowserModule,
