@@ -9,6 +9,8 @@ import { AlertModule } from 'ngx-bootstrap';
 import { AddComponent } from './add/add.component';
 import { ManuallyAddComponent } from './manually-add/manually-add.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { ManuallyAddComponent } from './manually-add/manually-add.component';
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
-    AlertModule
+    AlertModule,
+    HttpClientModule
 ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,93 @@
+<!--
 <p>
   add works!
 </p>
+-->
+
+<!--
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="http://radaseniorowrembertow.pl/wp-content/uploads/2015/09/big-sky-1.jpg">
+      <img src="http://radaseniorowrembertow.pl/wp-content/uploads/2015/09/big-sky-1.jpg" alt="Cinque Terre">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+-->
+
+<!--
+<div class="container">
+  <div class="card img-fluid" style="width:500px">
+    <img class="card-img-top" src="http://radaseniorowrembertow.pl/wp-content/uploads/2015/09/big-sky-1.jpg" alt="Card image" style="width:100%">
+    <div class="card-img-overlay">
+      <h4 class="card-title" style="color: white">John Doe</h4>
+    </div>
+  </div>
+</div>
+-->
+
+<!--
+<div>
+  <div class="container">
+    <div class="card img-fluid" *ngFor="let element of elements">
+      <img class="card-img-top" src={{element.photoUrl}} alt={{element.polishTitle}} style="width:100%">
+      <div class="card-img-overlay">
+        <h4 class="card-title" style="color: white">{{element.polishTitle}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<!--
+<div class="responsive" *ngFor="let element of elements">
+  <div class="gallery">
+    <a target="_blank" href="http://radaseniorowrembertow.pl/wp-content/uploads/2015/09/big-sky-1.jpg">
+      <img src={{element.photoUrl}} alt={{element.polishTitle}}>
+    </a>
+    <div class="desc">{{element.polishTitle}}</div>
+  </div>
+</div>
+<div class="clearfix"></div>
+-->
+
+
+<!--
+<div class="responsive" *ngFor="let element of elements">
+  <div class="gallery">
+      <img src={{element.photoUrl}} alt={{element.polishTitle}}>
+  </div>
+</div>
+-->
+
+<!--
+<div class="searchLabel">
+  <input type="text" placeholder="Szukaj" id="searchBox" autocomplete="off">
+</div>
+-->
+
+<div class="searchLabel">
+  <div class="searchBox">
+    <input class="searchBoxEffect" type="text" placeholder="Szukaj">
+    <span class="focus-border">
+    <i></i>
+  </span>
+  </div>
+</div>
+
+<div class="responsive" *ngFor="let item of items">
+  <div class="gallery">
+    <a target="_blank" href={{item.image_6}}>
+      <img src={{item.image_6}} alt="Cinque Terre" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here.</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div style="padding:6px;">
+  <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
+  <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+</div>
+<button (click)="test()">Test</button>
