@@ -62,7 +62,7 @@ div.desc {
   }
 
   input[type="text"] {
-    font: 15px/24px "Lato", Arial, sans-serif;
+    font: 20px/30px "Lato", Arial, sans-serif;
     color: #333;
     width: 100%;
     box-sizing: border-box;
@@ -127,7 +127,7 @@ div.desc {
   .searchBoxEffect:focus ~ .focus-border:after {
     transition-delay: 0.2s;
   }
-  
+
   .searchBoxEffect:focus ~ .focus-border i:before,
   .searchBoxEffect:focus ~ .focus-border i:after {
     height: 100%;

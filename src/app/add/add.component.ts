@@ -14,6 +14,8 @@ export class AddComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   items: Item[];
+  value: string = '';
+  hide: number = 0;
 
   ngOnInit() {
     /*
@@ -27,8 +29,20 @@ export class AddComponent implements OnInit {
   }
 
   test() {
+    /*
     this.items = ItemService.getDataFromApi();
     console.log('Test');
     console.log(this.items);
+    */
+  }
+
+  search() {
+    // alert(this.value);
+    if(this.value.length > 1) {
+      this.hide = 0;
+      this.items = [];
+      this.items = ItemService.getDataFromApi(this.value);
+      this.hide = 1;
+    }
   }
 }

@@ -11,6 +11,8 @@ import { ManuallyAddComponent } from './manually-add/manually-add.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     AngularFontAwesomeModule,
     AlertModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 ],
   providers: [],
   bootstrap: [AppComponent]
