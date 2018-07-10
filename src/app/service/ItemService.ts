@@ -13,6 +13,7 @@ export class ItemService {
       this.items = data as Item[];
       console.log('Metoda');
       console.log(this.items);
+      console.log('Koniec');
     });
     return this.items;
   }

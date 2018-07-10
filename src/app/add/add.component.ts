@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpXhrBackend} from '@angular/common/http';
 import { Element } from '../model/Element';
 import { ItemService } from '../service/ItemService';
 import { Item } from '../model/Item';
@@ -13,9 +13,8 @@ export class AddComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  items: Item[];
+  items: Item[] = [];
   value: string = '';
-  hide: number = 0;
 
   ngOnInit() {
     /*
@@ -39,10 +38,16 @@ export class AddComponent implements OnInit {
   search() {
     // alert(this.value);
     if(this.value.length > 1) {
-      this.hide = 0;
-      this.items = [];
-      this.items = ItemService.getDataFromApi(this.value);
-      this.hide = 1;
+      // this.items = [];
+      // this.items = ItemService.getDataFromApi(this.value);
+      // console.log(this.value);
+      // console.log(this.items);
+      const httpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
+      httpClient.get('http://localhost:8080/getAllItems/' + this.value).subscribe(data => {
+        this.items = data as Item[];
+        console.log(this.value);
+        console.log(this.items);
+      });
     }
   }
 }
