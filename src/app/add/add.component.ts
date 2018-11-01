@@ -42,12 +42,8 @@ export class AddComponent implements OnInit {
       this.items = this.itemService.getDataFromApi(this.value);
       console.log(this.value);
       console.log(this.items);
-      // const httpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
-      // httpClient.get('http://localhost:8080/filmoteka/getAllItems/' + this.value).subscribe(data => {
-      //   this.items = data as Item[];
-      //   console.log(this.value);
-      //   console.log('data: ' + JSON.stringify(data));
-      // });
+    } else {
+      this.items = [];
     }
   }
 }

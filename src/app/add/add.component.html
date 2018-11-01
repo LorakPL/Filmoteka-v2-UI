@@ -68,7 +68,7 @@
 
 <div class="searchLabel">
   <div class="searchBox">
-    <input class="searchBoxEffect" type="text" placeholder="Szukaj" [(ngModel)]="value" (keyup)="search()">
+    <input class="searchBoxEffect" type="text" placeholder="Szukaj" [(ngModel)]="value" (keyup.enter)="search()">
     <span class="focus-border">
     <i></i>
   </span>
