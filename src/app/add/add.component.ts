@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpXhrBackend} from '@angular/common/http';
 import { Element } from '../model/Element';
-import { ItemService } from '../service/ItemService';
+import { ItemService } from '../service/item.service';
 import { Item } from '../model/Item';
 
 @Component({
@@ -11,10 +11,10 @@ import { Item } from '../model/Item';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private itemService: ItemService) { }
 
   items: Item[] = [];
-  value: string = '';
+  value = '';
 
   ngOnInit() {
     /*
@@ -37,17 +37,17 @@ export class AddComponent implements OnInit {
 
   search() {
     // alert(this.value);
-    if(this.value.length > 1) {
-      // this.items = [];
-      // this.items = ItemService.getDataFromApi(this.value);
-      // console.log(this.value);
-      // console.log(this.items);
-      const httpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
-      httpClient.get('http://localhost:8080/getAllItems/' + this.value).subscribe(data => {
-        this.items = data as Item[];
-        console.log(this.value);
-        console.log(this.items);
-      });
+    if (this.value.length > 1) {
+      this.items = [];
+      this.items = this.itemService.getDataFromApi(this.value);
+      console.log(this.value);
+      console.log(this.items);
+      // const httpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
+      // httpClient.get('http://localhost:8080/filmoteka/getAllItems/' + this.value).subscribe(data => {
+      //   this.items = data as Item[];
+      //   console.log(this.value);
+      //   console.log('data: ' + JSON.stringify(data));
+      // });
     }
   }
 }
