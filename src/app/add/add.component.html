@@ -1,32 +1,4 @@
 <!--
-<p>
-  add works!
-</p>
--->
-
-<!--
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="http://radaseniorowrembertow.pl/wp-content/uploads/2015/09/big-sky-1.jpg">
-      <img src="http://radaseniorowrembertow.pl/wp-content/uploads/2015/09/big-sky-1.jpg" alt="Cinque Terre">
-    </a>
-    <div class="desc">Add a description of the image here</div>
-  </div>
-</div>
--->
-
-<!--
-<div class="container">
-  <div class="card img-fluid" style="width:500px">
-    <img class="card-img-top" src="http://radaseniorowrembertow.pl/wp-content/uploads/2015/09/big-sky-1.jpg" alt="Card image" style="width:100%">
-    <div class="card-img-overlay">
-      <h4 class="card-title" style="color: white">John Doe</h4>
-    </div>
-  </div>
-</div>
--->
-
-<!--
 <div>
   <div class="container">
     <div class="card img-fluid" *ngFor="let element of elements">
@@ -75,13 +47,27 @@
   </div>
 </div>
 
-<div class="responsive" *ngFor="let item of items">
-  <div class="gallery">
-    <a target="_blank" href={{item.image_6}}>
-      <img src={{item.image_6}} alt="Cinque Terre" width="600" height="400">
-    </a>
-    <div class="desc">{{item.originalTitle}}</div>
-  </div>
+<!--<div class="responsive" *ngFor="let movie of movies">-->
+  <!--<div class="gallery">-->
+    <!--<a target="_blank" href={{movie.title}}>-->
+      <!--<img [src]=getPosterSrcPath(movie.poster_path)  alt="image not found" width="600" height="400">-->
+    <!--</a>-->
+    <!--<div class="desc">{{movie.title}}</div>-->
+  <!--</div>-->
+<!--</div>-->
+<div class="responsive" *ngFor="let movie of movies">
+  <mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{movie.title}}</mat-card-title>
+    <mat-card-subtitle>{{movie.release_date}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]=getPosterSrcPath(movie.poster_path) alt="poster">
+  <mat-card-content>
+    <p>
+      {{movie.overview}}
+    </p>
+  </mat-card-content>
+  </mat-card>
 </div>
 
 <div class="clearfix"></div>

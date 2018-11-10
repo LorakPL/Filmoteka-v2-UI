@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpXhrBackend} from '@angular/common/http';
-import { Element } from '../model/Element';
-import { ItemService } from '../service/item.service';
-import { Item } from '../model/Item';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ItemService} from '../service/item.service';
+import {Item} from '../model/Item';
+import {Movie} from '../model/Movie';
+import * as constants from '../model/constants';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
+
 
 @Component({
   selector: 'app-add',
@@ -11,39 +14,36 @@ import { Item } from '../model/Item';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private http: HttpClient, private itemService: ItemService) { }
 
-  items: Item[] = [];
-  value = '';
 
-  ngOnInit() {
-    /*
-    this.http.get('http://localhost:8080/elements/gwiezdne').subscribe(data => {
-      // console.log(data);
-      this.elements = data as Element[];
-      console.log(this.elements);
-    });
-    */
-    // this.changePhoto();
+
+  constructor(private http: HttpClient, private itemService: ItemService) {
   }
+  displayedColumns = ['Title'];
+  value: string;
+  movies: Movie[] = [];
+  dataSource;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  test() {
-    /*
-    this.items = ItemService.getDataFromApi();
-    console.log('Test');
-    console.log(this.items);
-    */
-  }
 
+  ngOnInit() {}
   search() {
     // alert(this.value);
+    // @ts-ignore
     if (this.value.length > 1) {
-      this.items = [];
-      this.items = this.itemService.getDataFromApi(this.value);
-      console.log(this.value);
-      console.log(this.items);
+      // this.items = [];
+      this.itemService.getMovies(this.value).subscribe(data => {
+        this.movies = data as Movie[];
+        this.dataSource = new MatTableDataSource<Movie>(this.movies);
+        this.dataSource.paginator = this.paginator;
+      });
+      console.log(this.movies);
     } else {
-      this.items = [];
+      this.movies = [];
     }
+  }
+
+  getPosterSrcPath(poster_path: string) {
+    return constants.poster_url + poster_path;
   }
 }

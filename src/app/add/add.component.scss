@@ -56,7 +56,7 @@ div.desc {
 
   .searchBox {
     float: left;
-    width: 40%;
+    width: 100%;
     margin: 40px 3%;
     position: relative;
   }
@@ -136,5 +136,10 @@ div.desc {
 
   .searchBoxEffect:focus ~ .focus-border i:after {
     transition-delay: 0.4s;
+  }
+
+
+  .example-card {
+    max-width: 400px;
   }
 }
