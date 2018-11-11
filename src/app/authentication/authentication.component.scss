@@ -1,0 +1,88 @@
+.authentication-view {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  width: 300px;
+  height: 300px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: none;
+  background-color: #302060;
+  text-align: center;
+  -webkit-box-shadow: -18px 0px 62px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -18px 0px 62px 0px rgba(0,0,0,0.75);
+  box-shadow: -18px 0px 62px 0px rgba(0,0,0,0.75);
+  a {
+    font-size: 40px;
+    color: white;
+    line-height: 300px;
+    font-weight: bold;
+  }
+}
+.form {
+  width: 400px;
+  height: auto;
+  text-align: center;
+  -webkit-box-shadow: 18px 0px 62px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 18px 0px 62px 0px rgba(0,0,0,0.75);
+  box-shadow: 18px 0px 62px 0px rgba(0,0,0,0.75);
+  border-radius: 20px;
+  a {
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+  }
+  input {
+    display: block;
+    height: 50px;
+    margin: 20px auto;
+    width: 70%;
+    outline:none;
+    -webkit-appearance: none;
+    border: none;
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  input:hover {
+    background-color: #cccccc;
+  }
+  button {
+    border-radius: 5px;
+    background-color: darkgreen;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    color: white;
+    margin-top: 20px;
+  }
+  button:hover {
+    background-color: green;
+  }
+  p {
+    margin-left: 80%;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  p:hover {
+    color: #666666;
+  }
+}
