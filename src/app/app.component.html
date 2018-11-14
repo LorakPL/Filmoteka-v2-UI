@@ -23,8 +23,8 @@
 -->
 
 <div id="mainBody">
-    <app-sidenav></app-sidenav>
+    <app-sidenav *ngIf="currentUser"></app-sidenav>
   <div id="content">
-    <router-outlet style="text-align: center"></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </div>

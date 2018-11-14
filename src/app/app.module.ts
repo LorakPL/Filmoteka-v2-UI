@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SidenavComponent} from './sidenav/sidenav.component';
@@ -8,8 +7,8 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {AlertModule} from 'ngx-bootstrap';
 import {AddComponent} from './add/add.component';
 import {ManuallyAddComponent} from './manually-add/manually-add.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -47,14 +46,22 @@ import {
   MatStepperModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
-import { AuthenticationModule} from './authentication/authentication.module';
+import {AuthenticationModule} from './authentication/authentication.module';
+import {AlertComponent} from './components/alert/alert.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {JwtInterceptor} from './helpers/JwtInterceptor';
+import {ErrorInterceptor} from './helpers/ErrorInterceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
     AddComponent,
-    ManuallyAddComponent
+    ManuallyAddComponent,
+    AlertComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +70,7 @@ import { AuthenticationModule} from './authentication/authentication.module';
     AlertModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     ScrollingModule,
     ScrollingModule,
@@ -101,7 +109,10 @@ import { AuthenticationModule} from './authentication/authentication.module';
     CdkTableModule,
     AuthenticationModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
