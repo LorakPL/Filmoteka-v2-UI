@@ -1,0 +1,19 @@
+.card {
+  //width: 10%;
+  //height: 20%;
+  //transform: scale(0.5);
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 0 20px 0 rgba(0,0,0,0.75);
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.75);
+}
+
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

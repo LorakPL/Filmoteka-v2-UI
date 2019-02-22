@@ -48,8 +48,8 @@ import {
 import {CdkTableModule} from '@angular/cdk/table';
 import {AuthenticationModule} from './authentication/authentication.module';
 import {AlertComponent} from './components/alert/alert.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './authentication/login/login.component';
+import {RegisterComponent} from './authentication/register/register.component';
 import {JwtInterceptor} from './helpers/JwtInterceptor';
 import {ErrorInterceptor} from './helpers/ErrorInterceptor';
 
