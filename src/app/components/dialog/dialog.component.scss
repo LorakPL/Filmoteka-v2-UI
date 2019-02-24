@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+  height: 80vh;
+
+  .column {
+    overflow-y: auto;
+
+    img {
+      height: 80vh;
+    }
+  }
+
+  .form {
+    margin: 10px;
+    width: 40vh;
+    padding-top: 15px;
+
+    button {
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20% 10px 20%;
+      text-align: center;
+      display: block;
+      margin: 10px auto;
+    }
+  }
+}
+
+mat-dialog-container {
+  padding: 0 !important;
+}
+
+mat-form-field {
+  display: block !important;
+}
+
+mat-radio-button {
+  margin-left: 10px !important;
+}

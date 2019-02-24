@@ -1,10 +1,11 @@
-import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ItemService} from '../service/item.service';
 import {Item} from '../model/Item';
 import {Movie} from '../model/Movie';
 import * as constants from '../model/constants';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatDialogConfig, MatPaginator, MatTableDataSource} from '@angular/material';
+import {DialogComponent} from '../components/dialog/dialog.component';
 
 
 @Component({
@@ -17,14 +18,13 @@ export class AddComponent implements OnInit {
 
 
 
-  constructor(private http: HttpClient, private itemService: ItemService) {
+  constructor(private http: HttpClient, private itemService: ItemService, private dialog: MatDialog) {
   }
   displayedColumns = ['Title'];
   value: string;
   movies: Movie[] = [];
   dataSource;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
 
   ngOnInit() {}
   search() {
@@ -36,14 +36,20 @@ export class AddComponent implements OnInit {
         this.movies = data as Movie[];
         this.dataSource = new MatTableDataSource<Movie>(this.movies);
         this.dataSource.paginator = this.paginator;
+        console.log(this.movies);
       });
-      console.log(this.movies);
     } else {
       this.movies = [];
     }
   }
 
-  getPosterSrcPath(poster_path: string) {
-    return constants.poster_url + poster_path;
+  openDialog(movie: Movie) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = movie;
+
+    this.dialog.open(DialogComponent, dialogConfig).afterClosed().subscribe((item: Movie) => console.log(item));
   }
 }

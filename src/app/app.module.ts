@@ -53,6 +53,7 @@ import {RegisterComponent} from './authentication/register/register.component';
 import {JwtInterceptor} from './helpers/JwtInterceptor';
 import {ErrorInterceptor} from './helpers/ErrorInterceptor';
 import { FormatPosterPipe } from './pipes/format-poster.pipe';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { FormatPosterPipe } from './pipes/format-poster.pipe';
     AlertComponent,
     LoginComponent,
     RegisterComponent,
-    FormatPosterPipe
+    FormatPosterPipe,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +117,8 @@ import { FormatPosterPipe } from './pipes/format-poster.pipe';
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 export class AppModule {
 }

@@ -4,6 +4,6 @@
 
 <div class="gallery">
   <ng-container *ngFor="let movie of movies">
-    <img  *ngIf="movie?.poster_path" [src]="movie?.poster_path | formatPoster" [alt]="movie?.title" />
+    <img  *ngIf="movie?.poster_path" [src]="movie?.poster_path | formatPoster" [alt]="movie?.title" (click)="openDialog(movie)"/>
   </ng-container>
 </div>
