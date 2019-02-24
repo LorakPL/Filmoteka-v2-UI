@@ -48,10 +48,12 @@ import {
 import {CdkTableModule} from '@angular/cdk/table';
 import {AuthenticationModule} from './authentication/authentication.module';
 import {AlertComponent} from './components/alert/alert.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './authentication/login/login.component';
+import {RegisterComponent} from './authentication/register/register.component';
 import {JwtInterceptor} from './helpers/JwtInterceptor';
 import {ErrorInterceptor} from './helpers/ErrorInterceptor';
+import { FormatPosterPipe } from './pipes/format-poster.pipe';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import {ErrorInterceptor} from './helpers/ErrorInterceptor';
     ManuallyAddComponent,
     AlertComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FormatPosterPipe,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -113,7 +117,8 @@ import {ErrorInterceptor} from './helpers/ErrorInterceptor';
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 export class AppModule {
 }

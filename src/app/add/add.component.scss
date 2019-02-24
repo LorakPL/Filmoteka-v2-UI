@@ -1,145 +1,34 @@
-div.gallery {
-  border: 1px solid #ccc;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
+.search {
+  margin: 20px auto;
+  display: block;
   text-align: center;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.responsive {
-  padding: 0 6px;
-  float: left;
-  width: 24.99999%;
-}
-
-@media only screen and (max-width: 700px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .responsive {
-    width: 100%;
-  }
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-.searchLabel {
-  display: flex;
-  justify-content: center;
-
-  :focus {
-    outline: none;
-  }
 
   .searchBox {
-    float: left;
-    width: 100%;
-    margin: 40px 3%;
-    position: relative;
-  }
-
-  input[type="text"] {
-    font: 20px/30px "Lato", Arial, sans-serif;
-    color: #333;
-    width: 100%;
-    box-sizing: border-box;
-    letter-spacing: 1px;
+    width: 50%;
+    padding: 15px;
+    border-radius: 4px;
     text-align: center;
+    border: none;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
   }
 
-  .searchBoxEffect {
-    border: 1px solid #ccc;
-    padding: 7px 14px 9px;
-    transition: 0.4s;
+  .searchBox:hover {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
   }
+}
 
-  .searchBoxEffect ~ .focus-border:before,
-  .searchBoxEffect ~ .focus-border:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background-color: #3399FF;
-    transition: 0.2s;
-    transition-delay: 0.2s;
-  }
+.gallery {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 
-  .searchBoxEffect ~ .focus-border:after {
-    top: auto;
-    bottom: 0;
-    right: auto;
-    left: 0;
-    transition-delay: 0.6s;
-  }
-
-  .searchBoxEffect ~ .focus-border i:before,
-  .searchBoxEffect ~ .focus-border i:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 0;
-    background-color: #3399FF;
-    transition: 0.2s;
-  }
-
-  .searchBoxEffect ~ .focus-border i:after {
-    left: auto;
-    right: 0;
-    top: auto;
-    bottom: 0;
-    transition-delay: 0.4s;
-  }
-
-  .searchBoxEffect:focus ~ .focus-border:before,
-  .searchBoxEffect:focus ~ .focus-border:after {
-    width: 100%;
-    transition: 0.2s;
-    transition-delay: 0.6s;
-  }
-
-  .searchBoxEffect:focus ~ .focus-border:after {
-    transition-delay: 0.2s;
-  }
-
-  .searchBoxEffect:focus ~ .focus-border i:before,
-  .searchBoxEffect:focus ~ .focus-border i:after {
-    height: 100%;
-    transition: 0.2s;
-  }
-
-  .searchBoxEffect:focus ~ .focus-border i:after {
-    transition-delay: 0.4s;
-  }
-
-
-  .example-card {
-    max-width: 400px;
+  img {
+    padding-top: 10px;
+    width: 300px;
+    height: 450px;
   }
 }

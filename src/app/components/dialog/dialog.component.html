@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="column">
+    <img [src]="movie?.poster_path | formatPoster" [alt]="movie?.title" />
+  </div>
+  <div class="column form">
+    <mat-form-field appearance="outline" *ngIf="movie.title">
+      <mat-label>Tytuł</mat-label>
+      <input matInput placeholder="Placeholder" [(ngModel)]="movie.title">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="movie.release_date">
+      <mat-label>Data</mat-label>
+      <input matInput placeholder="Placeholder" [(ngModel)]="movie.release_date">
+    </mat-form-field>
+
+    <mat-chip-list *ngIf="selectdGenres.length > 0">
+      <mat-chip
+        *ngFor="let genre of selectdGenres"
+        (click)="remove(genre)">
+        {{genre}}
+      </mat-chip>
+    </mat-chip-list>
+
+    <mat-form-field>
+      <mat-select placeholder="Gatunki">
+        <mat-option *ngFor="let genre of genres" (click)="addGenre(genre)">
+          {{genre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="movie.overview">
+      <textarea matTextareaAutosize matInput placeholder="Opis" [(ngModel)]="movie.overview"></textarea>
+    </mat-form-field>
+
+    <mat-radio-group [(ngModel)]="movie.mediaType">
+      <mat-radio-button *ngFor="let type of types" [value]="type">
+        {{type === Type.MOVIE ? 'Film' : 'Serial'}}
+      </mat-radio-button>
+    </mat-radio-group>
+
+    <button (click)="save()">Dodaj</button>
+
+  </div>
+</div>

@@ -1,82 +1,9 @@
-<!--
-<div>
-  <div class="container">
-    <div class="card img-fluid" *ngFor="let element of elements">
-      <img class="card-img-top" src={{element.photoUrl}} alt={{element.polishTitle}} style="width:100%">
-      <div class="card-img-overlay">
-        <h4 class="card-title" style="color: white">{{element.polishTitle}}</h4>
-      </div>
-    </div>
-  </div>
-</div>
--->
-
-<!--
-<div class="responsive" *ngFor="let element of elements">
-  <div class="gallery">
-    <a target="_blank" href="http://radaseniorowrembertow.pl/wp-content/uploads/2015/09/big-sky-1.jpg">
-      <img src={{element.photoUrl}} alt={{element.polishTitle}}>
-    </a>
-    <div class="desc">{{element.polishTitle}}</div>
-  </div>
-</div>
-<div class="clearfix"></div>
--->
-
-
-<!--
-<div class="responsive" *ngFor="let element of elements">
-  <div class="gallery">
-      <img src={{element.photoUrl}} alt={{element.polishTitle}}>
-  </div>
-</div>
--->
-
-<!--
-<div class="searchLabel">
-  <input type="text" placeholder="Szukaj" id="searchBox" autocomplete="off">
-</div>
--->
-
-<div class="searchLabel">
-  <div class="searchBox">
-    <input class="searchBoxEffect" type="text" placeholder="Szukaj" [(ngModel)]="value" (keyup.enter)="search()">
-    <span class="focus-border">
-    <i></i>
-  </span>
-  </div>
+<div class="search">
+  <input class="searchBox" type="text" placeholder="Search" [(ngModel)]="value" (keyup.enter)="search()" />
 </div>
 
-<!--<div class="responsive" *ngFor="let movie of movies">-->
-  <!--<div class="gallery">-->
-    <!--<a target="_blank" href={{movie.title}}>-->
-      <!--<img [src]=getPosterSrcPath(movie.poster_path)  alt="image not found" width="600" height="400">-->
-    <!--</a>-->
-    <!--<div class="desc">{{movie.title}}</div>-->
-  <!--</div>-->
-<!--</div>-->
-<div class="responsive" *ngFor="let movie of movies">
-  <mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{movie.title}}</mat-card-title>
-    <mat-card-subtitle>{{movie.release_date}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image [src]=getPosterSrcPath(movie.poster_path) alt="poster">
-  <mat-card-content>
-    <p>
-      {{movie.overview}}
-    </p>
-  </mat-card-content>
-  </mat-card>
+<div class="gallery">
+  <ng-container *ngFor="let movie of movies">
+    <img  *ngIf="movie?.poster_path" [src]="movie?.poster_path | formatPoster" [alt]="movie?.title" (click)="openDialog(movie)"/>
+  </ng-container>
 </div>
-
-<div class="clearfix"></div>
-
-<!--
-
-<div style="padding:6px;">
-  <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
-  <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
-</div>
-<button (click)="test()">Test</button>
--->
